@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Criar Tarefa
+{% endblock %}
+
+{% block body %}
+    <div class="container vh-100 d-flex justify-content-center align-items-center">
+        <div class="card p-4" style="width: 100%; max-width: 400px;">
+            <h2>Criar Nova Tarefa</h2>
+            <hr>
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div class="mb-3">
+                    {{ form.title.label(class="form-label") }}
+                    {{ form.title(class="form-control", placeholder="Título da tarefa") }}
+                </div>
+                 <div class="mb-3">
+                    {{ form.event_date.label(class="form-label") }}
+                    {{ form.event_date(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.description.label(class="form-label") }}
+                    {{ form.description(class="form-control", placeholder="Descrição da tarefa") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.status.label(class="form-label") }}
+                    {{ form.status(class="form-select") }}
+                </div>
+                <div class="d-grid">
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+            <a href="{{ url_for('dashboard') }}"><button type="button" class="btn btn-outline-secondary">Cancelar</button></a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Dashboard
+{% endblock %}
+
+{% block body %}
+    <div class="container vh-100">
+        <h2 class="my-4">Meus Eventos</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Status</th>
+                    <th>Data</th> <!-- Adicione a coluna para a data -->
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tarefa in minhas_tarefas %}
+                <tr>
+                    <td>{{ tarefa.title }}</td>
+                    <td>{{ tarefa.description }}</td>
+                    <td>
+                        <form action="{{ url_for('edit_task', task_id=tarefa.id) }}" method="POST">
+                            <select name="status" class="form-select" onchange="this.form.submit()">
+                                <option value="pendente" {% if tarefa.status == 'pendente' %}selected{% endif %}>Pendente</option>
+                                <option value="em andamento" {% if tarefa.status == 'em andamento' %}selected{% endif %}>Em Andamento</option>
+                                <option value="concluida" {% if tarefa.status == 'concluida' %}selected{% endif %}>Concluída</option>
+                            </select>
+                        </form>
+                    </td>
+                    <td>
+                            {{ tarefa.data_evento.strftime('%Y-%m-%d') }}
+                    </td>
+                    <td>
+                        <a href="{{ url_for('edit_task', task_id=tarefa.id) }}" class="btn btn-warning btn-sm">Editar</a>
+                        <form action="{{ url_for('delete_task', task_id=tarefa.id) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Adicione um botão para criar novas tarefas -->
+        <a href="{{ url_for('create_task') }}" class="btn btn-primary">Criar Nova Tarefa</a>
+    </div>
+{% endblock %}
