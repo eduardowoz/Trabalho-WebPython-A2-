@@ -5,6 +5,8 @@
 
   ## DETALHE: é necessário criar um usuário novo caso não tenha uma conta 
 
+  ## DETALHE: A maneira correta e o passo a passo para a compilação funcional do código estará no link do notion
+
   \------------------------->
 ## \Estrutura do Projeto/ ##
   \------------------------->
