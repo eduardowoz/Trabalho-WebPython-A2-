@@ -5,7 +5,7 @@
 
   ## DETALHE: é necessário criar um usuário novo caso não tenha uma conta 
 
-  ## DETALHE: A maneira correta e o passo a passo para a compilação funcional do código estará no link do notion
+  ## DETALHE: A maneira correta e o passo a passo para a compilação funcional do código estará no link do notion: https://malachite-earl-ea9.notion.site/Trabalho-WebPython-A2-0ff7d98561e7804595c0d8b062b7500d?pvs=4
 
   \------------------------->
 ## \Estrutura do Projeto/ ##
